@@ -3,8 +3,11 @@ def main():
     sg.theme('LightBlue1')   # Theme color for my UI
     # All the things inside my window.
     layout = [  [sg.Text('Want to know if a marine animal is in the top ten most endangered marine animals list?')],
-                [sg.Text('Write the name of the marine animal and we will let you know!'), sg.InputText(key='box')],
-                [sg.Button('Ok'), sg.Button('Close Window')]]
+                [sg.Text('Name of marine animal:'), sg.InputText(key='box')],
+                [sg.Button('Ok'), sg.Button('Close Window')],
+                [sg.Button('Submit', visible=False, bind_return_key=True)]]
+
+
 
     window = sg.Window('Endangered Animals', layout).Finalize()
     while True: # Loop
@@ -19,7 +22,8 @@ def main():
     
     window.close()
     
-    endangeredList = ('Vaquita', 'Whale Shark', 'Hawksbill Sea Turtle', 'Sea Otter', 'Blue Whale', 'River Dolphin', 'Florida Manatee', 'Galapagos Penguin', 'Hawaiian Monk Seal', 'Kemp\'s Ridley Sea Turtle')
+    endangeredList = ('VAQUITA', 'WHALESHARK', 'HAWKSBILLSEATURTLE', 'SEAOTTER', 'BLUEWHALE', 'RIVERDOLPHIN', 'FLORIDAMANATEE', 'GALAPAGOSPENGUIN', 'HAWAIIANMONKSEAL', 'KEMPSRIDLEYSEATURTLE') # globallist of animals in uppercase without special characters
+
 def check_endangered_animal(animalName):
     if animalName in endangeredList: # if user input matches my list
         return True
